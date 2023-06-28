@@ -20,3 +20,8 @@ map.addEventListener("click", function (e) {
   const { lat, lng } = e.latlng;
   map.setView([lat, lng], map.getZoom()); // Set the view to the clicked location
 });
+
+map.on("click", function (mapEvent) {
+  const { lat, lng } = mapEvent.latlng;
+  L.marker([lat, lng]).addTo(map).bindPopup("--").openPopup();
+});
